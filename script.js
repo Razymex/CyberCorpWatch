@@ -1,11 +1,11 @@
 
 $(
-	function(){
-		$( document ).window.onload(
+	//function(){
+		//$( document ).window.onload(
 			function ( event ) {
 				Typer.addText( event ); //Capture the keydown event and call the addText, this is executed on page load
-			}
-		);
+			//}
+		//);
 	}
 );
 
