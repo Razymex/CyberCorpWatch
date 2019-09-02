@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <title>Cyberpunk</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+			setTimeout(function(){
+ document.getElementById('terminal').classList.remove('hide');
+}, 9000);
+			</script>
+			<script src="terminal.js"></script>
+
+</head>
+<body>
+    <div id='console'>
+	<script src='script.js' type='text/javascript'></script>
+	<script type='text/javascript'>
+    Typer.speed = 10;
+    Typer.file = 'kernel.txt';
+    Typer.init();
+	keyEvent = { key: "a"};
+	setTimeout(function() { clearInterval(typing); }, 60000);
+    typing = setInterval(function() {Typer.addText(keyEvent);}, 20);
+
+</script></div>
+	<div id='terminal'>
+	<script>
+			var t1 = new Terminal()
+			t1.setTextColor('#00FF00')
+			t1.setHeight("150px")
+			t1.setWidth('600')
+			t1.sleep(15000,function(){
+			document.body.appendChild(t1.html)
+			printLine(questions[currentQuestion]);
+			getLine(questionProcessor);
+})
+
+t1.print('Hi, This is your friendly bot, David!')
+
+function getLine(callback){
+	t1.input('', callback);
+}
+
+function printLine(text){
+	t1.print(text);
+}
+
+const questions = [
+	'Enter your login:',
+	'Password:',
+	'Who is cool?'
+];
+
+const questionHandlers = [
+	function(input){
+		if(input === 'v'){
+			printLine('UserName is correct, ACCESS GRANTED');
+			return true;
+		} else {
+			printLine('UserName is incorrect ACCESS DENIED');
+			return false;
+		}
+	},
+	function(input){
+		if(input === 'sasko'){
+			printLine('ACCESS GRANTED');
+			return true;
+		} else {
+			printLine('ACCESS DENIED');
+			return false;
+		}
+	},
+	function(input){
+		if(input === 'pawel sasko'){
+			printLine('Yes he is cool indeed');
+		} else {
+			printLine('Nah man');
+		}
+		return true;
+	}
+];
+
+const questionsCount = questions.length;
+
+var currentQuestion = 0;
+
+function questionProcessor(input){
+    const result = questionHandlers[currentQuestion](input);
+    if(result === true && currentQuestion < questionsCount - 1){
+        currentQuestion++;
+    } else {
+        currentQuestion = 0;
+    }
+    printLine(questions[currentQuestion]);
+    getLine(questionProcessor);
+}
+				
+					
+		</script>
+	</div>
+
+</body>
+
+
+</html>
