@@ -84,6 +84,7 @@ const questionHandlers = [
 			printLine('Nah man');
 		}
 	}
+	return false;
 ];
 
 const questionsCount = questions.length;
@@ -95,7 +96,7 @@ function questionProcessor(input){
     if(result === true && currentQuestion < questionsCount - 1){
         currentQuestion++;
     } else {
-        currentQuestion = 3;
+        currentQuestion = 0;
     }
     printLine(questions[currentQuestion]);
     getLine(questionProcessor);
